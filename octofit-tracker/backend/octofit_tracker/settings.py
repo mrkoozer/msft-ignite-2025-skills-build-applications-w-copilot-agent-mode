@@ -26,11 +26,15 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-x!tel$tb&35(h1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-if os.environ.get('CODESPACE_NAME'):
-    ALLOWED_HOSTS.append(f"{os.environ.get('CODESPACE_NAME')}-8000.app.github.dev")
+codespace_name = os.environ.get('CODESPACE_NAME')
 
-if DEBUG:
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+if codespace_name:
+    codespace_host = f"{codespace_name}-8000.app.github.dev"
+    if codespace_host not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(codespace_host)
+
+if DEBUG and '0.0.0.0' not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append('0.0.0.0')
 
 
@@ -173,7 +177,6 @@ CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:3000',
 ]
 
-codespace_name = os.environ.get('CODESPACE_NAME')
 if codespace_name:
     codespace_frontend = f"https://{codespace_name}-3000.app.github.dev"
     if codespace_frontend not in CORS_ALLOWED_ORIGINS:
@@ -191,5 +194,3 @@ if codespace_name:
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# CI rerun
