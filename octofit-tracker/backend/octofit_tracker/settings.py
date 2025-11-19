@@ -89,18 +89,24 @@ MONGO_HOST = os.environ.get('MONGO_HOST', 'localhost')
 MONGO_PORT = int(os.environ.get('MONGO_PORT', 27017))
 MONGO_USERNAME = os.environ.get('MONGO_USERNAME', '')
 MONGO_PASSWORD = os.environ.get('MONGO_PASSWORD', '')
+MONGO_URI = os.environ.get('MONGO_URI', f"mongodb://{MONGO_HOST}:{MONGO_PORT}")
+
+mongo_client_settings = {
+    'host': MONGO_URI,
+}
+
+if MONGO_USERNAME:
+    mongo_client_settings['username'] = MONGO_USERNAME
+
+if MONGO_PASSWORD:
+    mongo_client_settings['password'] = MONGO_PASSWORD
 
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': MONGO_DB_NAME,
         'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': MONGO_HOST,
-            'port': MONGO_PORT,
-            'username': MONGO_USERNAME,
-            'password': MONGO_PASSWORD,
-        },
+        'CLIENT': mongo_client_settings,
     }
 }
 
