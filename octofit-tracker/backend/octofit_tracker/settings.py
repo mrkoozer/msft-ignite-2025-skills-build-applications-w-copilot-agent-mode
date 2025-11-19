@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djongo',
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
@@ -103,6 +104,12 @@ if MONGO_PASSWORD:
 
 DATABASES = {
     'default': {
+        'ENGINE': 'djongo',
+        'NAME': MONGO_DB_NAME,
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': mongo_client_settings,
+    },
+    'octofit_db': {
         'ENGINE': 'djongo',
         'NAME': MONGO_DB_NAME,
         'ENFORCE_SCHEMA': False,
