@@ -1,0 +1,196 @@
+:root {
+  --octo-bg-dark: #050e1f;
+  --octo-bg-light: #111f3a;
+  --octo-card: #1d2a48;
+  --octo-surface: rgba(255, 255, 255, 0.08);
+  --octo-primary: #4dd5ff;
+  --octo-secondary: #ff9a62;
+  --octo-accent: #7cf29c;
+  --octo-text: #e4ecff;
+  --octo-muted: #9db0d9;
+}
+
+body {
+  background: radial-gradient(circle at top, rgba(77, 213, 255, 0.15), transparent 45%),
+    linear-gradient(180deg, var(--octo-bg-dark), var(--octo-bg-light));
+  color: var(--octo-text);
+  min-height: 100vh;
+}
+
+.app-shell {
+  background: transparent;
+  color: var(--octo-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--octo-accent);
+}
+
+p,
+li,
+span {
+  color: var(--octo-text);
+}
+
+a {
+  color: var(--octo-primary);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover,
+a:focus {
+  color: var(--octo-secondary);
+}
+
+.octofit-nav {
+  background: linear-gradient(90deg, #08122a, #12254c 70%);
+  border-bottom: 1px solid var(--octo-surface);
+}
+
+.octofit-nav .navbar-brand,
+.octofit-nav .navbar-brand:focus,
+.octofit-nav .navbar-brand:hover {
+  color: var(--octo-text);
+}
+
+.octofit-nav .brand-logo {
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+}
+
+.octofit-nav .navbar-toggler {
+  border-color: var(--octo-surface);
+}
+
+.octofit-nav .navbar-toggler-icon {
+  filter: invert(86%);
+}
+
+.octofit-nav .nav-link {
+  color: var(--octo-muted);
+  border-radius: 999px;
+  padding-inline: 1rem;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.octofit-nav .nav-link:hover,
+.octofit-nav .nav-link:focus {
+  color: var(--octo-text);
+  background: rgba(77, 213, 255, 0.15);
+}
+
+.octofit-nav .nav-link.active {
+  color: var(--octo-bg-dark);
+  background: var(--octo-primary);
+}
+
+.hero-banner {
+  background: radial-gradient(circle at top left, rgba(77, 213, 255, 0.45), transparent 40%),
+    linear-gradient(135deg, #06122f, #0f3052);
+  border-bottom: 1px solid var(--octo-surface);
+}
+
+.hero-card {
+  background: rgba(14, 23, 43, 0.8);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(4, 11, 25, 0.5);
+}
+
+.hero-card .display-6 {
+  color: var(--octo-text);
+}
+
+.hero-banner .btn-primary {
+  background: var(--octo-primary);
+  border-color: var(--octo-primary);
+  color: var(--octo-bg-dark);
+  box-shadow: 0 10px 25px rgba(77, 213, 255, 0.35);
+}
+
+.hero-banner .btn-primary:hover {
+  background: #69e0ff;
+  border-color: #69e0ff;
+}
+
+.hero-banner .btn-outline-secondary {
+  border-color: var(--octo-secondary);
+  color: var(--octo-secondary);
+}
+
+.hero-banner .btn-outline-secondary:hover {
+  background-color: rgba(255, 154, 98, 0.12);
+  border-color: var(--octo-secondary);
+  color: var(--octo-secondary);
+}
+
+.card,
+.table-responsive {
+  background: var(--octo-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.85rem;
+  box-shadow: 0 12px 30px rgba(7, 12, 24, 0.35);
+}
+
+.table {
+  color: var(--octo-text);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.table thead th {
+  background-color: rgba(255, 255, 255, 0.04);
+  color: var(--octo-muted);
+  border-bottom-width: 1px;
+}
+
+.table tbody tr {
+  transition: background 0.2s ease-in-out;
+}
+
+.table tbody tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.table tbody tr:hover {
+  background: rgba(77, 213, 255, 0.07);
+}
+
+.table-no-data {
+  padding: 1rem;
+  text-align: center;
+  color: var(--octo-muted);
+}
+
+.badge {
+  background: var(--octo-secondary);
+  color: var(--octo-bg-dark);
+}
+
+.modal-backdrop-custom {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
+}
+
+.modal.d-block {
+  z-index: 1050;
+}
+
+.link-pulse {
+  color: var(--octo-secondary);
+  font-weight: 600;
+}
+
+.link-pulse:hover {
+  color: var(--octo-accent);
+}
